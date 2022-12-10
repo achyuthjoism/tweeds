@@ -37,7 +37,7 @@ python main.py username TheNameisYash --json yashtweets.json --sort D
 ```
 Getting tweets from a search term or #hastag
 ```Bash
-python main.py search #Messi --json messigoat.json --minLikes 10000
+python main.py search "#Messi" --json messigoat.json --minLikes 10000
 ```
 **Have fun 🥰💞**
 
