@@ -1,7 +1,8 @@
 import snscrape.modules.twitter as api
 import pandas as pd
 import json
-import tweeds.classes.query as query
+from tweeds.query import Query
+from datetime import date
 
 
 def make_json(data, jsonFilePath):
@@ -32,13 +33,19 @@ def toOBJ(tweet: api.Tweet) -> object:
     }
 
 
-def search(q: query.Query) -> None:
+def search(q: Query) -> None:
+    """Print tweets"""
     query = ""
 
     if q.search:
         query += f"{q.search} "
     if q.username:
         query += f"(from:{q.username}) "
+    if q.today:
+        today = date.today().strftime("%Y/%m/%d")
+        query += f"until:{today}"
+    if q.year:
+        query += f"until:{q.year}-01-01 "
     if q.until:
         query += f"until:{q.until} "
     if q.since:
@@ -51,7 +58,18 @@ def search(q: query.Query) -> None:
         query += f" min_retweets:{q.minRetweets} "
     if q.near:
         query += f"near:{q.near} "
-
+    if q.geoCode:
+        query += f"geocode:{q.geoCode} "
+    if q.verified:
+        query += f"filter:verified "
+    if q.media:
+        query += f"filter:media "
+    if q.videos and not q.media and not q.images:
+        query += f"filter:native_video "
+    if q.images and not q.media and not q.videos:
+        query += f"filter:images "
+    if q.links:
+        query += "-filter:links "
     jsonObj = {}
     csvObj = []
 

@@ -1,13 +1,17 @@
 import argparse as ap
 import sys
-import tweeds.classes.query as query
-import tweeds.tweet_scrape as ts
+from tweeds.query import Query
+from tweeds.tweet_scrape import search
 
 
 def banner():
     print("""	
-	▀█▀ █░█░█ █ ▀█▀ ▀█▀ █▀▀ █▀█   █▀█ █▀ █ █▄░█ ▀█▀
-	░█░ ▀▄▀▄▀ █ ░█░ ░█░ ██▄ █▀▄   █▄█ ▄█ █ █░▀█ ░█░
+        ████████╗░██╗░░░░░░░██╗███████╗███████╗██████╗░░██████╗
+        ╚══██╔══╝░██║░░██╗░░██║██╔════╝██╔════╝██╔══██╗██╔════╝
+        ░░░██║░░░░╚██╗████╗██╔╝█████╗░░█████╗░░██║░░██║╚█████╗░
+        ░░░██║░░░░░████╔═████║░██╔══╝░░██╔══╝░░██║░░██║░╚═══██╗
+        ░░░██║░░░░░╚██╔╝░╚██╔╝░███████╗███████╗██████╔╝██████╔╝
+        ░░░╚═╝░░░░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝╚═════╝░╚═════╝░
 
         by Achyuth Jois M
     """)
@@ -17,7 +21,7 @@ banner()
 
 
 def config(args: ap.Namespace):
-    c = query.Query()
+    c = Query()
     c.search = args.s
     c.username = args.u
     c.limit = args.limit
@@ -30,13 +34,20 @@ def config(args: ap.Namespace):
     c.minReplies = args.minReplies
     c.minRetweets = args.minRetweets
     c.silent = args.silent
+    c.verified = args.verified
+    c.geoCode = args.geocode
+    c.links = args.links
+    c.videos = args.videos
+    c.images = args.images
+    c.media = args.media
+    c.year = args.year
 
     return c
 
 
 def process_args(args: ap.Namespace):
     q = config(args)
-    ts.search(q)
+    search(q)
 
 
 def main():
@@ -58,6 +69,31 @@ def main():
         '--near', type=str, help="Find tweets near a particular location"
     )
     parse.add_argument(
+        '--geocode', type=str, help="Search for geocoded Tweets."
+    )
+    parse.add_argument(
+        '--year', type=int, help="Filter Tweets before specified year."
+    )
+    parse.add_argument(
+        '--today', help="Filter Tweets from today", action='store_true'
+    )
+    parse.add_argument(
+        '--verified', help="Display Tweets only from verified users (Use with -s).", action='store_true'
+    )
+    parse.add_argument(
+        '--links', help="Exclude tweets containing one or more links.", action='store_true'
+    )
+    parse.add_argument(
+        "--videos", help="Display only Tweets with videos.", action='store_true'
+    )
+    parse.add_argument(
+        "--images", help="Display only Tweets with images.", action='store_true'
+    )
+    parse.add_argument(
+        "--media", help="Display Tweets with only images or videos.", action='store_true'
+    )
+
+    parse.add_argument(
         '--minLikes', type=int, help="Minimun likes for the tweet"
     )
     parse.add_argument(
@@ -72,7 +108,7 @@ def main():
         '--csv', type=str, help="To store the output in CSV"
     )
     parse.add_argument(
-        '--silent', type=str, help="Don't print the tweets(Only works while taking an output!)[Type anything]"
+        '--silent', help="Don't print the tweets(Only works while taking an output!)[Type anything]", action='store_true'
     )
 
     args = parse.parse_args(args=None if sys.argv[1:] else ['--help'])
