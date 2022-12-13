@@ -1,5 +1,8 @@
 # Tweeds - Twitter Scraping Tool
 
+<p align="center">
+<img src="https://media.tenor.com/Xrt-ty39PfEAAAAC/elon-musk-smoke.gif"/>
+</p>
 
 Scrape tweets from any Twitter user profile. Twitter API alternative to scrape Twitter hashtags, threads, images, videos, statistics,
 and Twitter history. Export data in JSON and CSV format. This project enables you to extract large amounts of data from Twitter.
