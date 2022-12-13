@@ -1,15 +1,13 @@
 from setuptools import setup, find_packages
-import io
-import os
 
-here = os.path.abspath(os.path.dirname(__file__))
-
-with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-    long_description = '\n' + f.read()
+long_description = """"Scrape tweets from any Twitter user profile. Twitter API alternative to scrape Twitter hashtags, threads, images, videos, statistics,
+and Twitter history. Export data in JSON and CSV format. This project enables you to extract large amounts of data from Twitter.
+It lets you do much more than the Twitter API, because it doesn't have rate limits and you don't even need to have a **Twitter account, a registered app,
+or Twitter API key.**"""
 
 setup(
     name='tweeds',
-    version='1.1',
+    version='2.1',
     author='Achyuth Jois M',
     author_email='developer.arjm@gmail.com',
     packages=find_packages(include=['tweeds', 'tweeds.*']),
