@@ -33,7 +33,7 @@ pip install tweeds
 ## 💃 Usage
 
 ```Bash
-achyuthjoism-MBP ~ %tweeds
+achyuthjoism-MBP ~ % tweeds
 
         ████████╗░██╗░░░░░░░██╗███████╗███████╗██████╗░░██████╗
         ╚══██╔══╝░██║░░██╗░░██║██╔════╝██╔════╝██╔══██╗██╔════╝
@@ -51,29 +51,29 @@ usage: tweeds [-h] [-u U] [-s S] [--since SINCE] [--until UNTIL] [--limit LIMIT]
 Scrape twitter user tweets
 
 options:
-  -h, --help            show this help message and exit
-  -u U                  Users Tweets you want to scrape.
-  -s S                  Search for Tweets containing this word or phrase.
-  --since SINCE         Filter Tweets sent since date (Example: "2017-12-27 20:30:15" or 2017-12-27).
-  --until UNTIL         Filter Tweets sent until date (Example: "2017-12-27 20:30:15" or 2017-12-27).
-  --limit LIMIT         Number of Tweets to pull
-  --near NEAR           Find tweets near a particular location
-  --geocode GEOCODE     Search for geocoded Tweets.
-  --year YEAR           Filter Tweets before specified year.
-  --today               Filter Tweets from today
-  --verified            Display Tweets only from verified users (Use with -s).
-  --links LINK          Exclude tweets containing one or more links.
-  --videos              Display only Tweets with videos.
-  --images              Display only Tweets with images.
-  --media               Display Tweets with only images or videos.
-  --minLikes MINLIKES   Minimun likes for the tweet
-  --minRetweets MINRETWEETS
-                        Minimun retweets for the tweet
-  --minReplies MINREPLIES
-                        Minimun replies for the tweet
-  --json JSON           File to write the JSON output to.
-  --csv CSV             To store the output in CSV
-  --silent              Dont print the tweets(Only works while taking an output!)[Type anything]
+    -h, --help            show this help message and exit
+    -u U                  Users Tweets you want to scrape.
+    -s S                  Search for Tweets containing this word or phrase.
+    --since SINCE         Filter Tweets sent since date (Example: "2017-12-27 20:30:15" or 2017-12-27).
+    --until UNTIL         Filter Tweets sent until date (Example: "2017-12-27 20:30:15" or 2017-12-27).
+    --limit LIMIT         Number of Tweets to pull
+    --near NEAR           Find tweets near a particular location
+    --geocode GEOCODE     Search for geocoded Tweets.
+    --year YEAR           Filter Tweets before specified year.
+    --today               Filter Tweets from today
+    --verified            Display Tweets only from verified users (Use with -s).
+    --links LINK          Exclude tweets containing one or more links.
+    --videos              Display only Tweets with videos.
+    --images              Display only Tweets with images.
+    --media               Display Tweets with only images or videos.
+    --minLikes MINLIKES   Minimun likes for the tweet
+    --minRetweets MINRETWEETS
+                          Minimun retweets for the tweet
+    --minReplies MINREPLIES
+                          Minimun replies for the tweet
+    --json JSON           File to write the JSON output to.
+    --csv CSV             To store the output in CSV
+    --silent              Dont print the tweets(Only works while taking an output!)
 
 achyuthjoism-MBP ~ %
 
@@ -91,7 +91,7 @@ Some simple examples to help you understand the basics:
 - `tweeds -u username --since "2015-12-20 20:30:15"` - Collect Tweets that were tweeted since 2015-12-20 20:30:15.
 - `tweeds -u username --since 2015-12-20` - Collect Tweets that were tweeted since 2015-12-20 00:00:00.
 - `tweeds -s "Rocking Star Yash" --verified` - Display Tweets by verified users that Tweeted about Rocking Star Yash.
-- `tweeds -geocode "48.880048,2.385939,1km" --csv paris.csv --limit 10` - Scrape Tweets from a radius of 1km around a place in Paris and export them to a csv file.
+- `tweeds --geocode "48.880048,2.385939,1km" --csv paris.csv --limit 10` - Scrape Tweets from a radius of 1km around a place in Paris and export them to a csv file.
 - `tweeds -u username --images` - Scrape Tweets from a user containing only images.
 - `tweeds -u username --videos` - Scrape Tweets from a user containing only videos.
 - `tweeds -u username --media` - Scarape Tweets from a user containing both images and videos.

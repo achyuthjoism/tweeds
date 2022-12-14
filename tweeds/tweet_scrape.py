@@ -42,10 +42,10 @@ def search(q: Query) -> None:
     if q.username:
         query += f"(from:{q.username}) "
     if q.today:
-        today = date.today().strftime("%Y/%m/%d")
-        query += f"until:{today}"
+        today = date.today().strftime("%Y-%m-%d")
+        query += f"since:{today} "
     if q.year:
-        query += f"until:{q.year}-01-01 "
+        query += f"since:{q.year}-01-01 "
     if q.until:
         query += f"until:{q.until} "
     if q.since:

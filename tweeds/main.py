@@ -41,6 +41,7 @@ def config(args: ap.Namespace):
     c.images = args.images
     c.media = args.media
     c.year = args.year
+    c.today = args.today
 
     return c
 
