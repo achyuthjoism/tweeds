@@ -5,15 +5,13 @@ and Twitter history. Export data in JSON and CSV format. This project enables yo
 It lets you do much more than the Twitter API, because it doesn't have rate limits and you don't even need to have a **Twitter account, a registered app,
 or Twitter API key.**"""
 
-requirements = [x.strip() for x in open("requirements.txt", "r").readlines()]
-
 setup(
     name='tweeds',
-    version='2.1.2.1',
+    version='2.1.2.3',
     author='Achyuth Jois M',
     author_email='developer.arjm@gmail.com',
     packages=find_packages(include=['tweeds', 'tweeds.*']),
-    install_requires=requirements,
+    install_requires=["snscrape==0.5.0.20230113", "pandas==1.5.3"],
     license='MIT',
     license_files=('LICENSE.md'),
     url='https://github.com/achyuthjoism/Twitter-OSINT',
