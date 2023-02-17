@@ -1,2 +1,2 @@
-snscrape
-pandas
+snscrape==0.5.0.20230113
+pandas==1.5.3

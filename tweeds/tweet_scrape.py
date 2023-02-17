@@ -11,7 +11,7 @@ def make_json(data, jsonFilePath):
 
 
 def printRes(tweet: api.Tweet):
-    print(f"{tweet.id} {tweet.date} <{tweet.user.username}> {tweet.content} \n")
+    print(f"{tweet.id} {tweet.date} <{tweet.user.username}> {tweet.rawContent} \n")
 
 
 def toOBJ(tweet: api.Tweet) -> object:
@@ -19,7 +19,7 @@ def toOBJ(tweet: api.Tweet) -> object:
         "id": tweet.id,
         "date": tweet.date.strftime('%Y/%m/%d'),
         "username": tweet.user.username,
-        "content": tweet.content,
+        "content": tweet.rawContent,
         "likes": tweet.likeCount,
         "retweet": tweet.retweetCount,
         "reply": tweet.replyCount,
@@ -79,7 +79,7 @@ def search(q: Query) -> None:
                 break
         jsonObj[tweet.id] = toOBJ(tweet)
         csvObj.append(
-            [tweet.id, tweet.date, tweet.content, tweet.url,
+            [tweet.id, tweet.date, tweet.rawContent, tweet.url,
              tweet.likeCount, tweet.retweetCount, tweet.replyCount, tweet.sourceLabel[12:]]
         )
         if q.silent:
