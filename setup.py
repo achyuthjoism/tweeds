@@ -9,7 +9,7 @@ requirements = [x.strip() for x in open("requirements.txt", "r").readlines()]
 
 setup(
     name='tweeds',
-    version='2.1.2',
+    version='2.1.2.1',
     author='Achyuth Jois M',
     author_email='developer.arjm@gmail.com',
     packages=find_packages(include=['tweeds', 'tweeds.*']),
